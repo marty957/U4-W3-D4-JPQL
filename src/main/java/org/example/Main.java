@@ -75,6 +75,26 @@ public class Main {
         List<Concerto> concertiStr=eventoDao.getConcertiInStreaming(true);
         concertiStr.forEach(System.out::println);*/
 
+       /* List<Concerto> concertiGenereMus=eventoDao.getConcertiPerGenere(GenereMusicale.POP);
+        concertiGenereMus.forEach(System.out::println);*/
+      /*  Location l5 = new Location(faker.name().name(), faker.address().city());
+        locationDao.save(l5);
+
+        PartitaDiCalcio par1=new PartitaDiCalcio("roma-lazio",LocalDate.of(2025,1,5),"il derby piu sgeuito",TipoEvento.PUBBLICO,100,l5,"roma","lazio","roma",4,1);
+        PartitaDiCalcio par2=new PartitaDiCalcio("juve-inter",LocalDate.of(2025,2,5),"il derby piu sgeuito",TipoEvento.PUBBLICO,100,l5,"juve","inter","inter",0,1);
+        PartitaDiCalcio par3=new PartitaDiCalcio("udinese-parma",LocalDate.of(2025,1,12),"la partita per gli ultimi in classifica",TipoEvento.PUBBLICO,100,l5,"parma","udinese","parma",4,1);
+
+
+        eventoDao.save(par1);
+        eventoDao.save(par2);
+        eventoDao.save(par3);*/
+
+        List<PartitaDiCalcio> vinteinCasa= eventoDao.getPartiteVinteIncasa();
+        vinteinCasa.forEach(System.out::println);
+        List<PartitaDiCalcio> vinteinTras= eventoDao.getPartiteVinteeInTrasferta();
+        vinteinTras.forEach(System.out::println);
+
+
 
 
     }

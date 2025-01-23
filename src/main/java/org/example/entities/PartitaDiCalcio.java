@@ -4,9 +4,12 @@ package org.example.entities;
 import org.example.enumeration.TipoEvento;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import java.time.LocalDate;
 
 @Entity
+@NamedQuery(name="PartitaDiCalcio.getPartiteVinteIncasa", query="SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente=p.squadraDiCasa ")
+@NamedQuery(name="PartitaDiCalcio.getPartiteVinteInTrasferta", query="SELECT p FROM PartitaDiCalcio p WHERE p.squadraVincente=p.ospite ")
 public class PartitaDiCalcio extends Evento{
 
     private String squadraDiCasa;

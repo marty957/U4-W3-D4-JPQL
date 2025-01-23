@@ -2,6 +2,8 @@ package org.example.dao;
 
 import org.example.entities.Concerto;
 import org.example.entities.Evento;
+import org.example.entities.PartitaDiCalcio;
+import org.example.enumaration.GenereMusicale;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -37,5 +39,20 @@ public class EventoDAO {
         q.setParameter("inStreaming",t);
         return q.getResultList();
 
+    }
+
+    public List<Concerto> getConcertiPerGenere(GenereMusicale genere){
+        Query q=em.createQuery("SELECT c FROM Concerto c WHERE c.genere=:genere");
+        q.setParameter("genere",genere);
+        return q.getResultList();
+    }
+
+    public List<PartitaDiCalcio> getPartiteVinteIncasa(){
+        Query  q= em.createNamedQuery("PartitaDiCalcio.getPartiteVinteIncasa");
+        return q.getResultList();
+    }
+    public List<PartitaDiCalcio> getPartiteVinteeInTrasferta(){
+        Query  q= em.createNamedQuery("PartitaDiCalcio.getPartiteVinteInTrasferta");
+        return q.getResultList();
     }
 }
